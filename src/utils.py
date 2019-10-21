@@ -16,3 +16,9 @@ def timetest(input_func):
     
     
     return timed
+
+
+def sample_list(first, last, size):
+    from random import sample
+
+    return sample(range(first, last + 1), size)
