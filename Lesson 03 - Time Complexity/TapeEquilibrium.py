@@ -40,9 +40,10 @@ Write an efficient algorithm for the following assumptions:
 
         N is an integer within the range [2..100,000];
         each element of array A is an integer within the range [−1,000..1,000].
-
-Copyright 2009–2019 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited. 
 """
+import sys
+sys.path.append("..")
+
 from utils import *
 
 

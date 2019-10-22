@@ -24,11 +24,12 @@ Write an efficient algorithm for the following assumptions:
 
         X, Y and D are integers within the range [1..1,000,000,000];
         X ≤ Y.
-
-Copyright 2009–2019 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 """
-from utils import *
+import sys
+sys.path.append("..")
 
+
+from utils import *
 
 @timetest
 def solution(X, Y, D):
