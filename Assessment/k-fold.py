@@ -1,0 +1,67 @@
+from utils import *
+from time import time
+
+@timetest
+def solution(indices, K):
+    
+    # get length of list of indices
+    lenI = len(indices)
+    
+    # get probable size of each fold
+    avg = lenI // K
+
+    # get the remainder indices of a perfect
+    rem = lenI % K
+
+    # identify folds indexes
+    ixs = []
+    i = 0
+    while i < lenI:
+        ixs.append(i)        
+        i += avg
+        if rem > 0:
+            i += 1
+            rem -= 1
+
+    # create folds
+    folds = []
+    lenIXS = len(ixs)
+    for f in range(lenIXS):
+        if f + 1 == lenIXS:
+            fold = indices[ixs[f]:]
+        else:
+            fold = indices[ixs[f]:ixs[f+1]]
+        folds.append(fold)
+
+    # create train and val sequences
+    ls = []
+    for f in range(len(folds)):
+        train = folds.copy()
+
+        val = train.pop(f)
+
+        ls += train
+        ls.append(val)
+
+    return(ls)
+    
+
+if __name__ == '__main__':
+    # indices, K = ([1, 2], 2)
+
+    # indices, K = ([1,2,3], 2)
+
+    indices, K = ([1,2,3,4,5,6,7,8,9,10], 3)
+
+    # indices, K = ([1,2,3,4,5,6,7,8,9], 3)
+
+    # indices, K = (list(range(10)), 10)
+
+    print(solution(indices, K))
+
+    # indices, K = (list(range(100)), 100)
+    # solution(indices, K)
+
+    # indices, K = (list(range(100000)), 100000)
+    # solution(indices, K)
+
