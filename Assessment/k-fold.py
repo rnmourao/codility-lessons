@@ -98,7 +98,7 @@ def solution2(indices, K):
     # create train and val sequences
     ls = []
     for f in range(len(folds)):
-        folds = [folds[-1]] + folds[0:-1] 
+        folds.append(folds.pop(0))
         ls += folds
 
     return(ls)    
