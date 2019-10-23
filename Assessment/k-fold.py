@@ -1,5 +1,22 @@
-from utils import *
 from time import time
+
+
+def timetest(input_func):
+
+    def timed(*args, **kwargs):
+
+        start_time = time()
+        result = input_func(*args, **kwargs)
+        end_time = time()
+        print("Method Name:", input_func.__name__, 
+            #   "Args:", args, 
+            #   "Kwargs:", kwargs, 
+              "Execution Time:", end_time - start_time)
+
+        return result
+    
+    return timed
+
 
 @timetest
 def solution(indices, K):
