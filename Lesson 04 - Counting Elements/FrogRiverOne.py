@@ -144,6 +144,6 @@ if __name__ == '__main__':
 
     # X, A = (3, [1, 3, 1, 3, 2, 1, 3])
 
-    solution(X, A)
-    solution2(X, A)
-    solution3(X, A) # 100% Correcteness, 80% Performance, 90% Overall
+    print(solution(X, A))
+    print(solution2(X, A))
+    print(solution3(X, A)) # 100% Correcteness, 80% Performance, 90% Overall
