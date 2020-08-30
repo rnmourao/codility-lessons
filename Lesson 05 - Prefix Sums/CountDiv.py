@@ -13,24 +13,19 @@ A ≤ B.
 
 def solution(A: int, B: int, K: int) -> int:
     
-    count = 0
-
-    if A % K == 0 or B % K == 0:
-        count += 1
-    
     a = A // K
     b = B // K
 
     n = b - a
-    if n > 0:
-        count += n
-
-    return count
+    if A % K == 0:
+        n += 1
+    
+    return n
 
 
 if __name__ == '__main__':
 
-    A = 7
+    A = 6
     B = 11
     K = 2
     C = solution(A, B, K)
@@ -38,8 +33,12 @@ if __name__ == '__main__':
 
     A = 0
     B = 2000000000
-    K = 1000
+    K = 2
     C = solution(A, B, K)
     print(C)
 
-    
+    A = 2
+    B = 2
+    K = 2
+    C = solution(A, B, K)
+    print(C)    
