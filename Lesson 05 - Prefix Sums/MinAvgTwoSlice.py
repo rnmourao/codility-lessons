@@ -31,3 +31,42 @@ N is an integer within the range [2..100,000];
 each element of array A is an integer within the range [−10,000..10,000].
 
 """
+from typing import List
+
+
+def prefix_sums(A, N):
+    sums = [0] * (N + 1)
+    for i in range(1, N+1):
+        sums[i] = sums[i - 1] + A[i - 1]
+    return sums
+
+
+def average(sums, P, Q):
+    return (sums[Q + 1] - sums[P]) / (Q - P + 1)
+
+
+def solution(A: List[int], N: int) -> int:
+
+    sums = prefix_sums(A, N)
+
+    min_avg = 100000
+    p = -1
+    for P in range(0, N - 1):
+        for Q in range(P + 1, N ):
+            avg = average(sums, P, Q)
+            if avg <= min_avg:
+                if avg == min_avg:
+                    if p < P:
+                        continue
+                min_avg = avg
+                p = P
+    
+    return p
+                
+
+if __name__ == "__main__":
+    A = [4, 2, 2, 5, 1, 5, 8]
+    N = len(A)
+
+    print(solution(A, N))
+    
