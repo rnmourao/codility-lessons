@@ -5,7 +5,7 @@ chardet==3.0.4
 html2text==2019.9.26
 html5lib==1.0.1
 idna==2.8
-numpy==1.17.3
+numpy==1.22.0
 pandas==0.25.2
 python-dateutil==2.8.0
 pytz==2019.3
